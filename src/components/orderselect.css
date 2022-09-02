@@ -1,0 +1,49 @@
+.orderselect {
+    display: flex;
+    justify-content: center;
+}
+
+.orderselect ul {
+    margin-top: 30px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.6em;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+.orderselect li {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selected {
+    background: rgb(255, 0, 0);
+    color: white;
+    animation: selected 0.5s ease-in-out;
+}
+
+@keyframes selected {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 400px) {
+    .orderselect ul {
+        font-size: 0.3em;
+    }
+}

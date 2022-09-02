@@ -1,0 +1,16 @@
+.navmenu{
+    /* fitcontent + 20px */
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+    background: #000;
+    color: white;
+    font-size: 0.8em;
+}
+.navmenu div{
+    padding: 5px 0px;
+}
+.menu_active{
+    border-bottom: 3px solid #ccc;
+}

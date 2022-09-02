@@ -1,0 +1,17 @@
+.neworder{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    width: 300px;
+    height: 80px;
+    max-width: 100px;
+    max-height: 80px;
+    background: #000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

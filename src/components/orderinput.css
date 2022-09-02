@@ -1,0 +1,20 @@
+.order-input {
+    display: grid;
+    grid-gap: 1.0em;
+    padding: 2.0em;
+    margin: auto;
+    font-size: 0.7em;
+}
+
+.order-input input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1.5em 2.0em;
+    font-size: 0.5em;
+    outline: none;
+}
+.order-input button{
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+}
