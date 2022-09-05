@@ -1,15 +1,27 @@
-import { useState, useRef } from 'react'
-import reactLogo from './assets/react.svg'
+import { useState, useRef, useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 import NavMenu from './components/nav'
 import NewOrder from './components/neworder'
 import Loading from './components/loading'
 import Login from './components/login'
 
+const SERVER_IP = 'http://127.0.0.1:8000'
+const TOKEN = localStorage.getItem('eztoken')
+
 function App() {
+
+  const LoginCheck = () => {
+    if (TOKEN === null) {
+      return false
+    } else {
+      return true
+    }
+  }
+    
   const [Menu, setMenu] = useState('주문하기')
-  const [LoginTrue, setLoginTrue] = useState(false);
-  const [Loading_on, setLoading_on] = useState(false)
+  const [LoginTrue, setLoginTrue] = useState(LoginCheck());
+  const [Loading_on, setLoading_on] = useState(false);
 
   return (
     <div className="App">
