@@ -11,9 +11,9 @@ function NewOrder(props) {
     return (
         <div>
             <div className="neworder">
-                {Services.map((service) => (
+                {Services.map((service, index) => (
                     <button
-                        key={service}
+                        key={index}
                         onClick={() => setOrderchoice(service)}
                         className={Orderchoice === service ? 'selected' : ''} // 선택된 버튼은 selected 클래스를 추가
                     >
@@ -21,7 +21,7 @@ function NewOrder(props) {
                     </button>
                 ))}
             </div>
-            <OrderSelect orderchoice={Orderchoice} services={Services} />
+            <OrderSelect orderchoice={Orderchoice} services={Services}/>
             <OrderDesc />
             <OrderInput loadingon={props.loadingon} />
         </div>
