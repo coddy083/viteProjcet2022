@@ -3,7 +3,7 @@ import axios from 'axios';
 import './orderinput.css';
 
 const SEVER_IP = 'http://127.0.0.1:8000'
-const TOKEN = `Bearer ${localStorage.getItem('token')}`
+const TOKEN = `Bearer ${localStorage.getItem('eztoken')}`
 
 function OrderInput(props) {
     const [OrderLink, setOrderLink] = useState('');
@@ -16,24 +16,23 @@ function OrderInput(props) {
     }
 
     const OrderSend = () => {
-        axios.post(`${SEVER_IP}/order/`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': TOKEN
-          },
-          data: {
-            service: 2,
-            link: OrderLink,
-            quantity: OrderQuantity
-          }
-        })
+      const data = {
+        "service": 2,
+        "link": OrderLink,
+        "quantity": OrderQuantity
+      }
+      axios.post(`${SEVER_IP}/order/`, data, {
+        headers: {
+          'Authorization': TOKEN
+        }
+      })
         .then((response) => {
-            console.log(response);
-            props.loadingon(false);
+          console.log(response);
+          props.loadingon(false);
         })
         .catch((error) => {
-            console.log(error);
-            props.loadingon(false);
+          console.log(error);
+          props.loadingon(false);
         })
     }
 

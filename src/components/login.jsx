@@ -17,6 +17,7 @@ function Login(props) {
         axios.post(`${SERVER_IP}/user/signin/`, data)
             .then((response) => {
                 TokenGenerate(response.data.access, response.data.refresh);
+                window.location.reload();
             })
             .catch((error) => {
                 console.log(error);

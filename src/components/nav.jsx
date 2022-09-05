@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 function NavMenu(props) {
     const MenuList = ['주문하기', '주문내역', '마이페이지'];
-    
+
     const handleClick = (e) => {
         props.setMenu(e.target.innerText);
     }
@@ -28,7 +28,7 @@ function NavMenu(props) {
                     </div>
                 )
             })}
-            { props.LoginTrue === false ?  <div onClick={LoginClick}>로그인</div> : <div onClick={LogoutClick}>로그아웃</div>}
+            {props.LoginTrue === false ? <div onClick={LoginClick}>로그인</div> : <div onClick={LogoutClick}>로그아웃</div>}
         </div>
     )
 }
