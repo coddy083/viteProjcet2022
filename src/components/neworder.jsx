@@ -4,7 +4,6 @@ import './neworder.css'
 import axios from "axios"
 
 function NewOrder(props) {
-    // const Services = ['인스타그램', '유튜브', '네이버']
     const [Services, setServices] = useState([
         {id: 1, name: '인스타그램'},
         {id: 2, name: '유튜브'},
@@ -15,10 +14,8 @@ function NewOrder(props) {
     useEffect(() => {
         axios.get('http://localhost:8000/order/category/')
             .then(res => {
-                console.log(res.data)
                 setServices(
                     res.data.map((item) => {
-                        console.log(item)
                         return {
                             id: item.id,
                             name: item.name

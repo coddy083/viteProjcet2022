@@ -21,14 +21,14 @@ function OrderDesc(props) {
         () => {
             const data = props.OrderList.find((item) => item.id === props.OrderSelect)
             setDesc(data)
-        }, [props]
+        }, [props.OrderSelect]
     )
     return (
         <div>
             <div className="orderdesc">
                 <div>
                     <div>가격</div>
-                    <div>{(Desc === undefined ? '' : Desc.price)}</div>
+                    <div>{(Desc === undefined ? '' : Desc.price + 'P')}</div>
                 </div>
                 <div>
                     <div>수량</div>
@@ -39,7 +39,7 @@ function OrderDesc(props) {
                     <div>{(Desc === undefined ? '' : '이탈없음')}</div>
                 </div>
             </div>
-            <OrderInput loadingon={props.loadingon}/>
+            <OrderInput Desc={Desc} loadingon={props.loadingon}/>
         </div>
 
     )

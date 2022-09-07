@@ -6,7 +6,6 @@ import Swal from 'sweetalert2'
 
 const SERVER_IP = 'http://127.0.0.1:8000';
 
-
 const OrderList = (props) => {
   const [orderList, setOrderList] = useState();
 
@@ -50,7 +49,6 @@ const OrderList = (props) => {
 
   return (
     <div className="order_list">
-      {/* <h1>주문내역</h1> */}
       {orderList && orderList.map(OrderData)}
     </div>
   );

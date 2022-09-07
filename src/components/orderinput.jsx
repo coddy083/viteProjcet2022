@@ -50,7 +50,7 @@ function OrderInput(props) {
 
   const OrderSend = () => {
     const data = {
-      "service": 2,
+      "service": props.Desc.id,
       "link": OrderLink,
       "quantity": OrderQuantity
     }
@@ -61,6 +61,7 @@ function OrderInput(props) {
     })
       .then((response) => {
         props.loadingon(false);
+        Swal.fire('주문이 완료되었습니다.', '', 'success');
         setOrderLink('');
         setOrderQuantity('');
       })
@@ -72,8 +73,8 @@ function OrderInput(props) {
 
   return (
     <div className="order-input">
-      링크<input value={OrderLink} onChange={(e) => { setOrderLink(e.target.value) }} placeholder='링크'></input>
-      수량<input value={OrderQuantity} onChange={(e) => { setOrderQuantity(e.target.value) }} placeholder='수량'></input>
+      링크<input type="text" value={OrderLink} onChange={(e) => { setOrderLink(e.target.value) }} placeholder='링크'></input>
+      수량<input type="number" value={OrderQuantity} onChange={(e) => { setOrderQuantity(e.target.value) }} placeholder='수량'></input>
       <button onClick={OrderClick}>주문하기</button>
     </div>
   )
