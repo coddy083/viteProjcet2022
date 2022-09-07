@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './login.css';
+import Swal from 'sweetalert2'
 
 const SERVER_IP = 'http://127.0.0.1:8000';
 
@@ -19,8 +20,8 @@ function Login(props) {
                 TokenGenerate(response.data.access, response.data.refresh);
                 window.location.reload();
             })
-            .catch((error) => {
-                console.log(error);
+            .catch((err) => {
+                err.response.status === 401 && Swal.fire('아이디 또는 비밀번호가 일치하지 않습니다.', '', 'error');
             })
     }
 

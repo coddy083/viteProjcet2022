@@ -3,19 +3,28 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding: 10px 0px;
 }
-.orderdesc div{
-    margin: 0 auto;
-    width: 80px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgb(255, 237, 71);
-    font-size: 0.8em;
-    font-weight: bold;
-    color: #293462;
+
+.orderdesc div {
+  margin: 0 auto;
+  width: 80%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: rgb(255, 237, 71); */
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #293462;
+  border-radius: 10px 10px 10px 10px;
 }
-.orderdesc div div:nth-child(1){
-    background-color: #E3C770;
+
+.orderdesc div div:nth-child(1) {
+  background-color: #CFD2CF;
+  border-radius: 10px 10px 0px 0px;
+}
+.orderdesc div div:nth-child(2) {
+  background-color: red;
+  border-radius: 0px 0px 10px 10px;
+  color: white;
 }

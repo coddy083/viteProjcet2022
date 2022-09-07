@@ -16,6 +16,7 @@ function NavMenu(props) {
         localStorage.removeItem('eztoken');
         localStorage.removeItem('ezrefresh');
         props.setLoginTrue(false);
+        window.location.reload();
     }
 
     return (
