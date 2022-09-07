@@ -1,12 +1,35 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import OrderSelect from "./orderselect"
-import OrderInput from './orderinput'
-import OrderDesc from './orderdesc'
 import './neworder.css'
+import axios from "axios"
 
 function NewOrder(props) {
-    const Services = ['인스타그램', '유튜브', '네이버']
-    const [Orderchoice, setOrderchoice] = useState(Services[0])
+    // const Services = ['인스타그램', '유튜브', '네이버']
+    const [Services, setServices] = useState([
+        {id: 1, name: '인스타그램'},
+        {id: 2, name: '유튜브'},
+        {id: 3, name: '네이버'}
+    ])
+    const [Orderchoice, setOrderchoice] = useState(Services[0].id)
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/order/category/')
+            .then(res => {
+                console.log(res.data)
+                setServices(
+                    res.data.map((item) => {
+                        console.log(item)
+                        return {
+                            id: item.id,
+                            name: item.name
+                        }
+                    })
+                )
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
     return (
         <div>
@@ -14,16 +37,14 @@ function NewOrder(props) {
                 {Services.map((service, index) => (
                     <button
                         key={index}
-                        onClick={() => setOrderchoice(service)}
-                        className={Orderchoice === service ? 'selected' : ''} // 선택된 버튼은 selected 클래스를 추가
+                        onClick={() => setOrderchoice(service.id)}
+                        className={Orderchoice === service.id ? 'selected' : ''} // 선택된 버튼은 selected 클래스를 추가
                     >
-                        {service}
+                        {service.name}
                     </button>
                 ))}
             </div>
-            <OrderSelect orderchoice={Orderchoice} services={Services}/>
-            <OrderDesc />
-            <OrderInput loadingon={props.loadingon} />
+            <OrderSelect orderchoice={Orderchoice} services={Services} loadingon={props.loadingon}/>
         </div>
     )
 

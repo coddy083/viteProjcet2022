@@ -1,54 +1,54 @@
 import './orderselect.css'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios'
+import OrderDesc from './orderdesc'
 
 function OrderSelect(props) {
-    const OrderList = ['외국인 좋아요', '외국인 팔로워', '한국인 좋아요', '한국인 팔로워', '동영상 조회수', '피드 노출도달']
+    const [OrderList, setOrderList] = useState([
+        { id: 1, name: '인스타그램', description: '인스타그램 팔로워를 늘려주는 서비스입니다.', price: 1, category: 1, min_quantity: 100, max_quantity: 1000 },
+    ])
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/order/service/${props.orderchoice}/`)
+            .then(res => {
+                setOrderList(
+                    res.data.map((item) => {
+                        return {
+                            id: item.id,
+                            name: item.name,
+                            description: item.description,
+                            price: item.price,
+                            category: item.category,
+                            min_quantity: item.min_quantity,
+                            max_quantity: item.max_quantity,
+                        }
+                    }
+                    )
+                )
+            }
+            )
+    }, [props])
+
     const [OrderSelect, setOrderSelect] = useState('')
 
-    const Order_Selectd = (e) => {
-        setOrderSelect(e.target.innerText)
-    }
+    return (
+        <div>
+            <div className='orderselect'>
+                <ul>
+                    {OrderList.map((order, index) => {
+                        return (
+                            <li onClick={() => { setOrderSelect(order.id) }} className={order.id === OrderSelect ? 'selected' : ''} key={index}>{order.name}</li>
+                        )
+                    }
+                    )}
+                </ul>
+            </div>
+            <OrderDesc OrderSelect={OrderSelect} OrderList={OrderList} loadingon={props.loadingon}/>
+        </div>
 
-    if (props.orderchoice === props.services[0]) {
-        return (
-            <div className='orderselect'>
-                <ul>
-                    {OrderList.map((order, index) => {
-                        return (
-                            <li onClick={Order_Selectd} className={order === OrderSelect ? 'selected' : ''} key={index}>{order}</li>
-                        )
-                    }
-                    )}
-                </ul>
-            </div>
-        )
-    } else if (props.orderchoice === props.services[1]) {
-        return (
-            <div className='orderselect'>
-                <ul>
-                    {OrderList.map((order, index) => {
-                        return (
-                            <li key={index}>{order}</li>
-                        )
-                    }
-                    )}
-                </ul>
-            </div>
-        )
-    } else if (props.orderchoice === props.services[2]) {
-        return (
-            <div className='orderselect'>
-                <ul>
-                    {OrderList.map((order, index) => {
-                        return (
-                            <li key={index}>{order}</li>
-                        )
-                    }
-                    )}
-                </ul>
-            </div>
-        )
-    }
+
+
+    )
 }
 
 export default OrderSelect;

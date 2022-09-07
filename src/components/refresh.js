@@ -18,7 +18,7 @@ const RefreshToken = () => {
             // footer: "<A href='<Login />'>Login</A>"
         })
         :
-        ""
+        console.log(err.response.status)
         )
     })
 }

@@ -25,18 +25,15 @@ function OrderInput(props) {
 
       swalWithBootstrapButtons.fire({
         title: `${OrderLink} 주문을 하시겠습니까?`,
-        text: `수량은 ${OrderQuantity} 입니다.`,
+        text: `수량은 ${OrderQuantity}개 입니다.`,
         icon: 'warning',
         confirmButtonColor: '#3085d6',
         showCancelButton: true,
-        confirmButtonText: '시작!',
-        cancelButtonText: '취소!',
+        confirmButtonText: '시작',
+        cancelButtonText: '취소',
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            '주문이 시작되었습니다.',
-          )
           OrderSend();
         } else if (
           /* Read more about handling dismissals below */
@@ -68,7 +65,7 @@ function OrderInput(props) {
         setOrderQuantity('');
       })
       .catch((err) => {
-        err.response.status === 401 && alert('로그인이 필요합니다.');
+        err.response.status === 401 && Swal.fire('로그인이 필요합니다.');
         props.loadingon(false);
       })
   }
