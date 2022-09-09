@@ -7,17 +7,20 @@ import Swal from 'sweetalert2'
 const SERVER_IP = 'http://127.0.0.1:8000';
 
 const OrderList = (props) => {
+  const [AllPages, setAllPages] = useState(0);
+  const [Page, setPage] = useState(1);
   const [orderList, setOrderList] = useState();
 
   const getOrderList = () => {
     props.loadingon(true);
-    axios.get(`${SERVER_IP}/order/`, {
+    axios.get(`${SERVER_IP}/order/${Page}/`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('eztoken')}`
       }
     })
       .then(res => {
-        setOrderList(res.data);
+        setAllPages(res.data.all_pages);
+        setOrderList(res.data.data);
         props.loadingon(false);
       })
       .catch(err => {
@@ -28,8 +31,9 @@ const OrderList = (props) => {
   }
 
   useEffect(() => {
+    console.log(Page);
     getOrderList();
-  }, []);
+  }, [Page]);
 
   const OrderData = (data) => {
     return (
@@ -49,6 +53,19 @@ const OrderList = (props) => {
 
   return (
     <div className="order_list">
+      <div className="order_list_page">
+        <div className="order_list_page_left">
+          <button className="order_list_page_left_button" onClick={() => Page > 1 && setPage(Page - 1)}>이전</button>
+        </div>
+        <div className="order_list_page_center">
+          <div className="order_list_page_center_text">
+            {Page} / {AllPages}
+          </div>
+        </div>
+        <div className="order_list_page_right">
+          <button className="order_list_page_right_button" onClick={() => Page < AllPages && setPage(Page + 1)}>다음</button>
+        </div>
+      </div>
       {orderList && orderList.map(OrderData)}
     </div>
   );

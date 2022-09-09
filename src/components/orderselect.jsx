@@ -9,7 +9,6 @@ function OrderSelect(props) {
     ])
 
     useEffect(() => {
-        console.log("프롭스", props)
         axios.get(`http://localhost:8000/order/service/${props.orderchoice}/`)
             .then(res => {
                 setOrderList(
