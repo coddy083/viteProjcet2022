@@ -17,6 +17,7 @@ function NavMenu(props) {
         localStorage.removeItem('ezrefresh');
         props.setLoginTrue(false);
         window.location.reload();
+        
     }
 
     return (
@@ -24,7 +25,7 @@ function NavMenu(props) {
             {MenuList.map((menu, index) => {
                 return (
                     <div key={index}
-                        onClick={handleClick} className={menu === props.menu ? 'menu_active' : ''} >
+                        onClick={handleClick} style={{cursor: 'pointer'}} className={menu === props.menu ? 'menu_active' : ''} >
                         {menu}
                     </div>
                 )
