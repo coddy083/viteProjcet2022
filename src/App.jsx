@@ -8,6 +8,7 @@ import Login from './components/login'
 import OrderList from './components/orderlist'
 import RefreshToken from "./components/refresh";
 import NotLogin from './components/notlogin'
+import Mypage from './components/mypage'
 import Swal from 'sweetalert2'
 
 
@@ -45,7 +46,7 @@ function App() {
       <NavMenu menu={Menu} setMenu={setMenu} LoginTrue={LoginTrue} setLoginTrue={setLoginTrue} />
       {Menu === '주문하기' && <NewOrder loadingon={setLoading_on} />}
       {Menu === '주문내역' ? LoginCehck() ? <OrderList loadingon={setLoading_on} /> : <NotLogin /> : null}
-      {Menu === '마이페이지' ? LoginCehck() ? <div>마이페이지</div> : <NotLogin /> : null}
+      {Menu === '마이페이지' ? LoginCehck() ? <Mypage /> : <NotLogin /> : null}
       {Menu === '로그인' && <Login LoginTrue={LoginTrue} setLoginTrue={setLoginTrue} />}
       {Loading_on === true && <Loading />}
     </div>

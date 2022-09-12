@@ -1,0 +1,20 @@
+.mypage{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.user{
+    background-color: #cecece;
+    color: black;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+.point{
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-left: 20px;
+}
