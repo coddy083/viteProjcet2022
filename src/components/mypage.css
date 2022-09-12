@@ -18,3 +18,54 @@
     border-radius: 10px;
     margin-left: 20px;
 }
+.point span{
+    background: #000;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.user span{
+    background: #000;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.despoit{
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    /* margin-left: 20px; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.despoit select{
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.despoit input{
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.despoit button{
+    width: fit-content;
+    height: fit-content;
+    background-color: #4f4f4f;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-top: 10px;
+}

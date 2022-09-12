@@ -9,6 +9,7 @@
     border-radius: 10px;
     width: 90%;
     font-weight: bold;
+    font-size: 12px;
 }
 
 .order_status {
@@ -55,6 +56,6 @@
 
 @media (max-width: 400px) {
     .orders {
-        font-size: 1.0em;
+        font-size: 0.7em;
     }
 }
