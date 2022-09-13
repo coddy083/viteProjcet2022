@@ -1,13 +1,13 @@
 version: 3
+
 services:
   react:
-	build:
-	  context: .
-      dockerfile: Dockerfile
- 	ports:
-	  - 5173:5173
-	volumes:
-	  - /usr/src/app/node_modules
-	  - ./:/usr/src/app
-	stdin_open: true
-	restart: always
+		build: .
+	  command: npm run preview
+		volumes:
+	  	- /usr/src/app/node_modules
+	  	- ./:/usr/src/app
+ 		ports:
+	  	- 5173:5173
+		stdin_open: true
+		restart: always
