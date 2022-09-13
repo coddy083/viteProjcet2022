@@ -9,13 +9,26 @@
     font-family: 'HallymGothic-Regular';
 }
 
-html{
+html {
     font-size: 16px;
 }
 
-body, h1, p, li, ul{
+body,
+h1,
+p,
+li,
+ul {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     direction: none;
 }
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
