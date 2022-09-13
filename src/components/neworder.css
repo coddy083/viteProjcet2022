@@ -17,3 +17,7 @@ button{
     margin: 3px;
     font-size: 0.7em;
 }
+
+button:focus{
+    outline: none;
+}

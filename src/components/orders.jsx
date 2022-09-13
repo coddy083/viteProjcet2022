@@ -3,7 +3,7 @@ import './order.css'
 function Orders(props) {
     return (
         <div className='orders'>
-            <div>{props.service_name.name}</div>
+            <div className='service_name'>{props.service_name.name}</div>
             <div className='order'>{props.link}</div>
             <div className='order_status'>
                 <div>시작 {props.start_count}</div>

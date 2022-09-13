@@ -39,7 +39,9 @@ function OrderSelect(props) {
                 <ul>
                     {OrderList.map((order, index) => {
                         return (
-                            <li onClick={() => { setOrderSelect(order.id) }} className={order.id === OrderSelect ? 'selected' : ''} key={index}>{order.name}</li>
+                            <li onClick={() => { setOrderSelect(order.id) }} className={order.id === OrderSelect ? 'selected' : ''} key={index}>
+                                {order.name}
+                                </li>
                         )
                     }
                     )}
