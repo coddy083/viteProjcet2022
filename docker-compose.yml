@@ -3,8 +3,6 @@ version: '3.8'
 services:
   front:
     build: .
-    ports:
-      - "8080:8080"
     volumes:
       - /usr/src/app/node_modules
       - ./:/usr/src/app
