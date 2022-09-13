@@ -12,7 +12,7 @@ function NewOrder(props) {
     const [Orderchoice, setOrderchoice] = useState(Services[0].id)
 
     useEffect(() => {
-        axios.get('http://localhost:8000/order/category/')
+        axios.get('http://127.0.0.1:8000/order/category/')
             .then(res => {
                 setServices(
                     res.data.map((item) => {
