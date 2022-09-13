@@ -1,13 +1,13 @@
 version: 3
 
 services:
-  react:
+	react:
 		build: .
-	  command: npm run preview
+		command: npm run preview
 		volumes:
-	  	- /usr/src/app/node_modules
-	  	- ./:/usr/src/app
- 		ports:
+			- /usr/src/app/node_modules
+			- ./:/usr/src/app
+		ports:
 	  	- 5173:5173
 		stdin_open: true
 		restart: always
