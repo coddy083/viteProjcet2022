@@ -5,9 +5,19 @@ services:
     build: .
     command: npm run preview
     ports:
-      - "80:80"
+      - "8080:8080"
     volumes:
       - /usr/src/app/node_modules
       - ./:/usr/src/app
     restart: always
     stdin_open: true
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - front
+    restart: always
