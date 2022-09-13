@@ -4,7 +4,7 @@ import './orderlist.css'
 import Orders from './orders'
 import Swal from 'sweetalert2'
 
-const SERVER_IP = 'http://127.0.0.1:8000';
+const SERVER_IP = 'http://49.247.148.170:8000';
 
 const OrderList = (props) => {
   const [AllPages, setAllPages] = useState(0);

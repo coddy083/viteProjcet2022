@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import OrderSelect from "./orderselect"
 import './neworder.css'
-import './server-ip.js'
 import axios from "axios"
+
+const SERVER_IP = 'http://49.247.148.170:8000';
 
 function NewOrder(props) {
     const [Services, setServices] = useState([

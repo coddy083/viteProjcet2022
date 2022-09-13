@@ -3,7 +3,7 @@ import axios from 'axios';
 import './orderinput.css';
 import Swal from 'sweetalert2'
 
-const SEVER_IP = 'http://127.0.0.1:8000'
+const SERVER_IP = 'http://49.247.148.170:8000';
 
 function OrderInput(props) {
   const [OrderLink, setOrderLink] = useState('');
@@ -54,7 +54,7 @@ function OrderInput(props) {
       "link": OrderLink,
       "quantity": OrderQuantity
     }
-    axios.post(`${SEVER_IP}/order/`, data, {
+    axios.post(`${SERVER_IP}/order/`, data, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('eztoken')}`
       }

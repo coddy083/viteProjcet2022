@@ -3,7 +3,7 @@ import axios from 'axios';
 import './login.css';
 import Swal from 'sweetalert2'
 
-const SERVER_IP = 'http://127.0.0.1:8000';
+const SERVER_IP = 'http://49.247.148.170:8000';
 
 function Login(props) {
     const [LoginId, setLoginId] = useState('');

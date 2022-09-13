@@ -3,13 +3,15 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import OrderDesc from './orderdesc'
 
+const SERVER_IP = 'http://49.247.148.170:8000';
+
 function OrderSelect(props) {
     const [OrderList, setOrderList] = useState([
         { id: 1, name: '인스타그램', description: '인스타그램 팔로워를 늘려주는 서비스입니다.', price: 1, category: 1, min_quantity: 100, max_quantity: 1000 },
     ])
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/order/service/${props.orderchoice}/`)
+        axios.get(`${SERVER_IP}/order/service/${props.orderchoice}/`)
             .then(res => {
                 setOrderList(
                     res.data.map((item) => {

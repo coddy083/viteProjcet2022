@@ -1,9 +1,11 @@
 import axios from "axios"
 import Swal from "sweetalert2"
 
+const SERVER_IP = 'http://49.247.148.170:8000';
+
 const RefreshToken = () => {
     const refreshToken = localStorage.getItem("ezrefresh")
-    axios.post("http://localhost:8000/user/refresh/", {
+    axios.post(`${SERVER_IP}/user/refresh/`, {
         "refresh": refreshToken
     }).then(res => {
         localStorage.setItem("eztoken", res.data.access)
