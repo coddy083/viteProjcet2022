@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import OrderSelect from "./orderselect"
 import './neworder.css'
+import './server-ip.js'
 import axios from "axios"
 
 function NewOrder(props) {
@@ -12,7 +13,7 @@ function NewOrder(props) {
     const [Orderchoice, setOrderchoice] = useState(Services[0].id)
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/order/category/')
+        axios.get(`${SERVER_IP}/order/category/`)
             .then(res => {
                 setServices(
                     res.data.map((item) => {
