@@ -2,13 +2,12 @@ import './orderselect.css'
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import OrderDesc from './orderdesc'
+import ServerIP from './server'
 
-const SERVER_IP = 'http://49.247.148.170:8000';
+const SERVER_IP = ServerIP()
 
 function OrderSelect(props) {
-    const [OrderList, setOrderList] = useState([
-        { id: 1, name: '인스타그램', description: '인스타그램 팔로워를 늘려주는 서비스입니다.', price: 1, category: 1, min_quantity: 100, max_quantity: 1000 },
-    ])
+    const [OrderList, setOrderList] = useState([])
 
     useEffect(() => {
         axios.get(`${SERVER_IP}/order/service/${props.orderchoice}/`)
@@ -39,7 +38,7 @@ function OrderSelect(props) {
                 <ul>
                     {OrderList.map((order, index) => {
                         return (
-                            <li onClick={() => { setOrderSelect(order.id) }} className={order.id === OrderSelect ? 'selected' : ''} key={index}>
+                            <li onClick={() => { setOrderSelect(order.id) }} className={order.id === OrderSelect ? 'order_selected' : ''} key={index}>
                                 {order.name}
                                 </li>
                         )

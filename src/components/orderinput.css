@@ -18,3 +18,23 @@
     height: 40px;
     margin: 0 auto;
 }
+.btn_success{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1.5em 2.0em;
+    font-size: 0.7em;
+    outline: none;
+    margin: 0 5px;
+}
+.btn_danger{
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1.5em 2.0em;
+    font-size: 0.7em;
+    outline: none;
+    margin: 0 5px;
+}

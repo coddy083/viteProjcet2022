@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react"
 import OrderSelect from "./orderselect"
 import './neworder.css'
 import axios from "axios"
+import ServerIP from "./server"
 
-const SERVER_IP = 'http://49.247.148.170:8000';
+const SERVER_IP = ServerIP()
 
 function NewOrder(props) {
     const [Services, setServices] = useState([
@@ -26,7 +27,7 @@ function NewOrder(props) {
                 )
             })
             .catch(err => {
-                console.log(err)
+                console.log("neworder.jsx: ", err)
             })
     }, [])
 
@@ -37,7 +38,7 @@ function NewOrder(props) {
                     <button
                         key={index}
                         onClick={() => setOrderchoice(service.id)}
-                        className={Orderchoice === service.id ? 'selected' : ''} // 선택된 버튼은 selected 클래스를 추가
+                        className={Orderchoice === service.id ? 'selected service_button' : 'service_button'} // 선택된 버튼은 selected 클래스를 추가
                     >
                         {service.name}
                     </button>

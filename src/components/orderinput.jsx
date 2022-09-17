@@ -2,30 +2,30 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './orderinput.css';
 import Swal from 'sweetalert2'
+import ServerIP from './server';
 
-const SERVER_IP = 'http://49.247.148.170:8000';
+const SERVER_IP = ServerIP()
 
 function OrderInput(props) {
   const [OrderLink, setOrderLink] = useState('');
   const [OrderQuantity, setOrderQuantity] = useState('');
   const OrderClick = () => {
     props.loadingon(true);
-    if (OrderLink === '' || OrderQuantity === '') {
-      Swal.fire('주문정보를 입력해주세요.', '', 'error');
+    if (OrderLink === '' || OrderQuantity === '' || props.Desc === undefined) {
+      Swal.fire('주문정보를 입력해주세요.', '');
       props.loadingon(false);
     } else {
-
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
+          confirmButton: 'btn_success',
+          cancelButton: 'btn_danger'
         },
         buttonsStyling: false
       })
 
       swalWithBootstrapButtons.fire({
         title: `${OrderLink} 주문을 하시겠습니까?`,
-        text: `수량은 ${OrderQuantity}개 입니다.`,
+        text: `금액은 ${OrderQuantity*props.Desc.price}P 입니다.`,
         icon: 'warning',
         confirmButtonColor: '#3085d6',
         showCancelButton: true,
@@ -67,6 +67,7 @@ function OrderInput(props) {
       })
       .catch((err) => {
         err.response.status === 401 && Swal.fire('로그인이 필요합니다.');
+        err.response.status === 400 && Swal.fire('주문에 실패하였습니다.');
         props.loadingon(false);
       })
   }
@@ -75,7 +76,7 @@ function OrderInput(props) {
     <div className="order-input">
       링크<input type="text" value={OrderLink} onChange={(e) => { setOrderLink(e.target.value) }} placeholder='링크'></input>
       수량<input type="number" value={OrderQuantity} onChange={(e) => { setOrderQuantity(e.target.value) }} placeholder='수량'></input>
-      <button onClick={OrderClick}>주문하기</button>
+      <button className='service_button' onClick={OrderClick}>주문하기</button>
     </div>
   )
 }

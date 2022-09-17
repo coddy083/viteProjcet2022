@@ -22,8 +22,8 @@
     cursor: pointer;
 }
 
-.selected {
-    background: rgb(255, 0, 0);
+.order_selected {
+    background: #34374C;
     color: white;
     animation: selected 0.5s ease-in-out;
 }
@@ -42,8 +42,8 @@
     }
 }
 
-@media (max-width: 400px) {
-    .orderselect ul {
-        font-size: 0.5em;
+@media (max-width: 450px) {
+    .orderselect li {
+        font-size: 0.6em;
     }
 }
