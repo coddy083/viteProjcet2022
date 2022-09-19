@@ -32,7 +32,6 @@ const OrderList = (props) => {
   }
 
   useEffect(() => {
-    console.log(Page);
     getOrderList();
   }, [Page]);
 

@@ -12,9 +12,24 @@
 .desposit_table td{
     border: 1px solid #ddd;
     padding: 10px;
+    text-align: center;
 }
 .desposit_table th{
     border: 1px solid #ddd;
     padding: 10px;
     background: #eee;
+    text-align: center;
+}
+.page{
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
+}
+.page button{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: #eee;
+    margin: 0 5px;
+    cursor: pointer;
 }

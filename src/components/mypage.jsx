@@ -13,13 +13,13 @@ function Mypage() {
     const [Depositor, setDepositor] = useState("");
     const [Receipt, setReceipt] = useState(false);
     const [ReceiptInfo, setReceiptInfo] = useState("0");
+    const [ReceipInfoComplete, setReceipInfoComplete] = useState(false);
     const [User, setUser] = useState({
         "username": "...",
         "point": "...",
     });
 
     useEffect(() => {
-        console.log("useEffect")
         axios.get(`${SERVER_IP}/user/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('eztoken')}`
@@ -41,7 +41,7 @@ function Mypage() {
 
     const Desposit = (e) => {
         e.preventDefault();
-        if (ChargeMoney === "0" || Depositor === "") {
+        if (ChargeMoney === 0 || Depositor === "") {
             Swal.fire('입금자명과 금액을 입력해주세요.', '');
         } else {
             const data = {
@@ -56,8 +56,9 @@ function Mypage() {
             })
                 .then(res => {
                     console.log(res.data);
-                    
+
                     Swal.fire('입금 신청이 완료 되었습니다.', '');
+                    setReceipInfoComplete(true);
                 }
                 )
                 .catch(err => {
@@ -97,9 +98,9 @@ function Mypage() {
                 </div>
                 <input onClick={Desposit} type="submit" value="충전하기" />
             </div>
-            <DespositList />
+            <DespositList ReceipInfoComplete={ReceipInfoComplete} />
         </div>
     )
 }
 
-    export default Mypage
+export default Mypage
