@@ -1,0 +1,30 @@
+.orderinfo_box{
+    display: flex;
+    justify-content: center;
+}
+.orderinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    width: 95%;
+    font-weight: bold;
+    font-size: 12px;
+}
+.info_icon{
+    padding: 0 5px 0 0;
+    width: 18px;
+    height: 18px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* margin-bottom: 20px; */
+}
+.info_text{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}

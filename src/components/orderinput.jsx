@@ -3,6 +3,7 @@ import axios from 'axios';
 import './orderinput.css';
 import Swal from 'sweetalert2'
 import ServerIP from './server';
+import OrderInfo from './order_info';
 
 const SERVER_IP = ServerIP()
 
@@ -74,6 +75,7 @@ function OrderInput(props) {
 
   return (
     <div className="order-input">
+      <OrderInfo />
       링크<input type="text" value={OrderLink} onChange={(e) => { setOrderLink(e.target.value) }} placeholder='링크'></input>
       수량<input type="number" value={OrderQuantity} onChange={(e) => { setOrderQuantity(e.target.value) }} placeholder='수량'></input>
       <button className='service_button' onClick={OrderClick}>주문하기</button>

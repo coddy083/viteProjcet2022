@@ -9,6 +9,7 @@ import OrderList from './components/orderlist'
 import RefreshToken from "./components/refresh";
 import NotLogin from './components/notlogin'
 import Mypage from './components/mypage'
+import Footer from './components/footer'
 import Swal from 'sweetalert2'
 
 
@@ -49,6 +50,7 @@ function App() {
       {Menu === '마이페이지' ? LoginCehck() ? <Mypage /> : <NotLogin /> : null}
       {Menu === '로그인' && <Login LoginTrue={LoginTrue} setLoginTrue={setLoginTrue} />}
       {Loading_on === true && <Loading />}
+      <Footer />
     </div>
   )
 }
