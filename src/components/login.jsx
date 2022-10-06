@@ -59,6 +59,10 @@ function Login(props) {
         }
     }
 
+    const KaKao_Login = () => {
+        window.location.href = `${SERVER_IP}/user/kakao/`;
+    }
+
 
     return (
         Signup ? 
@@ -66,8 +70,9 @@ function Login(props) {
             <h1>로그인</h1>
             <input type="text" value={LoginId} onChange={(e) => { setLoginId(e.target.value) }} placeholder='아이디'></input>
             <input type="password" value={LoginPw} onChange={(e) => { setLoginPw(e.target.value) }} placeholder='비밀번호'></input>
-            <button onClick={Signin}>로그인</button>
+            <button className='login_button' onClick={Signin}>로그인</button>
             <div>아이디가 없으신가요? <span onClick={() => { setSignup(false) }}>회원가입</span></div>
+            <button onClick={KaKao_Login} className='kakao_login'>카카오 로그인</button>
         </div>
         :
         <div className="login_modal">
@@ -76,8 +81,9 @@ function Login(props) {
             <input type="text" value={SignupEmail} onChange={(e) => { setSignupEmail(e.target.value) }} placeholder='이메일주소'></input>
             <input type="password" value={SignupPw} onChange={(e) => { setSignupPw(e.target.value) }} placeholder='비밀번호'></input>
             <input type="password" value={SignupPwCheck} onChange={(e) => { setSignupPwCheck(e.target.value) }} placeholder='비밀번호 확인'></input>
-            <button onClick={SignupSubmit}>회원가입</button>
+            <button className='login_button' onClick={SignupSubmit}>회원가입</button>
             <div>이미 회원이신가요? <span onClick={() => { setSignup(true) }}>로그인</span></div>
+            <button onClick={KaKao_Login} className='kakao_login'>카카오 로그인</button>
         </div>
     )
 }

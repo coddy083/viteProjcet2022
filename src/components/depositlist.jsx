@@ -21,9 +21,8 @@ export default function DespositList(props) {
             }
         })
             .then(res => {
-                console.log(res.data.count);
                 setDepositLists([])
-                setPageCount(res.data.count/4)
+                setPageCount(res.data.count / 4)
                 res.data.results.map((item, index) => {
                     setDepositLists(DepositLists => [...DepositLists, item]);
                 })

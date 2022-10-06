@@ -18,7 +18,8 @@
     border-radius: 5px;
     outline: none;
 }
-.login_modal button{
+.login_button{
+    width: 65%;
     height: 40px;
     margin: 10px 0;
     padding: 0 10px;
@@ -29,6 +30,21 @@
     cursor: pointer;
     color: #000;
 }
-.login_modal button:focus{
+.login_button:focus{
     outline: none;
+}
+.kakao_login{
+    width: 70%;
+    height: 70px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 0px;
+    background-color: yellow;
+    cursor: pointer;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

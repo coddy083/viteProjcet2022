@@ -10,15 +10,38 @@ import RefreshToken from "./components/refresh";
 import NotLogin from './components/notlogin'
 import Mypage from './components/mypage'
 import Footer from './components/footer'
-import Swal from 'sweetalert2'
 
-
-const SERVER_IP = 'http://127.0.0.1:8000'
 const TOKEN = localStorage.getItem('eztoken')
 
-function App() {
+function App(props) {
 
   RefreshToken();
+
+  useEffect(() => {
+    const url = window.location.href;
+    const kakao_code = url.split('=')[1];
+    console.log(kakao_code);
+    if (kakao_code) {
+      KakaoLogin(kakao_code)
+    }
+  }, [])
+
+  const KakaoLogin = (code) => {
+    axios.get(`http://localhost:8000/user/kakao/callback/?code=${code}`)
+      .then((response) => {
+        console.log(response.data);
+        TokenGenerate(response.data.access, response.data.refresh)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const TokenGenerate = (access, refresh) => {
+    localStorage.setItem('eztoken', access);
+    localStorage.setItem('ezrefresh', refresh);
+    setLoginTrue(true);
+  }
 
   const LoginCheck = () => {
     if (TOKEN === null) {
