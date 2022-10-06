@@ -1,7 +1,8 @@
 import axios from "axios"
 import Swal from "sweetalert2"
+import ServerIP from "./server"
 
-const SERVER_IP = 'http://49.247.148.170:8000';
+const SERVER_IP = ServerIP()
 
 const RefreshToken = () => {
     const refreshToken = localStorage.getItem("ezrefresh")
