@@ -10,7 +10,7 @@ import RefreshToken from "./components/refresh";
 import NotLogin from './components/notlogin'
 import Mypage from './components/mypage'
 import Footer from './components/footer'
-import ServerIP from './server'
+import ServerIP from './components/server'
 
 const SERVER_IP = ServerIP();
 
