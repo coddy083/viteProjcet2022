@@ -10,6 +10,9 @@ import RefreshToken from "./components/refresh";
 import NotLogin from './components/notlogin'
 import Mypage from './components/mypage'
 import Footer from './components/footer'
+import ServerIP from './server'
+
+const SERVER_IP = ServerIP();
 
 const TOKEN = localStorage.getItem('eztoken')
 
@@ -27,7 +30,7 @@ function App(props) {
   }, [])
 
   const KakaoLogin = (code) => {
-    axios.get(`http://localhost:8000/user/kakao/callback/?code=${code}`)
+    axios.get(`${SERVER_IP}/user/kakao/callback/?code=${code}`)
       .then((response) => {
         console.log(response.data);
         TokenGenerate(response.data.access, response.data.refresh)
