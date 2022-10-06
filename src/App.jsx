@@ -23,16 +23,15 @@ function App(props) {
   useEffect(() => {
     const url = window.location.href;
     const kakao_code = url.split('=')[1];
-    console.log(kakao_code);
     if (kakao_code) {
       KakaoLogin(kakao_code)
     }
   }, [])
 
   const KakaoLogin = (code) => {
+    console.log(SERVER_IP);
     axios.get(`${SERVER_IP}/user/kakao/callback/?code=${code}`)
       .then((response) => {
-        console.log(response.data);
         TokenGenerate(response.data.access, response.data.refresh)
       })
       .catch((err) => {
