@@ -1,4 +1,4 @@
 export default function ServerIP() {
-  const server_ip = 'http://49.247.20.113:8000';
+  const server_ip = 'https://dj_backend.shop/api';
     return server_ip
 }
