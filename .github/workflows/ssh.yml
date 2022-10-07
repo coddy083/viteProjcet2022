@@ -1,0 +1,23 @@
+name: Project Git pull
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Backend-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ssh remote commands
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          timeout: 40s
+          script: |
+            cd front
+            git pull
+            docker exec root_front_1 npm run build
