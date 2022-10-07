@@ -32,3 +32,6 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+.swal2-title{
+    font-size: 1.0em;
+}
