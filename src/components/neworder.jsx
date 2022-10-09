@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import OrderSelect from "./orderselect"
-import './neworder.css'
+import './style/neworder.css'
 import axios from "axios"
 import ServerIP from "./server"
 

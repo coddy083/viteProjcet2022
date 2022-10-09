@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './login.css';
+import './style/login.css';
 import Swal from 'sweetalert2'
 import ServerIP from './server';
 

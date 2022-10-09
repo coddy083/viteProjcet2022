@@ -1,4 +1,4 @@
-import './nav.css';
+import './style/nav.css';
 import React, { useState, useRef } from 'react';
 import { useEffect } from 'react';
 

@@ -1,4 +1,4 @@
-import './order_info.css';
+import './style/order_info.css';
 
 export default function OrderInfo() {
     return (

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import './orderlist.css'
+import './style/orderlist.css'
 import Orders from './orders'
 import Swal from 'sweetalert2'
 import ServerIP from "./server";

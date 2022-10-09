@@ -1,4 +1,4 @@
-import './mypage.css'
+import './style/mypage.css'
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';

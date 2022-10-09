@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ServerIP from "./server";
-import './depositlist.css';
+import './style/depositlist.css';
 
 const SERVER_IP = ServerIP();
 

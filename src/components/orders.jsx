@@ -1,4 +1,4 @@
-import './order.css'
+import './style/order.css'
 
 function Orders(props) {
     return (

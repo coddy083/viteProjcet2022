@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './orderdesc.css'
+import './style/orderdesc.css'
 import OrderInput from './orderinput'
 
 function OrderDesc(props) {

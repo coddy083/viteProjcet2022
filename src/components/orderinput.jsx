@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './orderinput.css';
+import './style/orderinput.css';
 import Swal from 'sweetalert2'
 import ServerIP from './server';
 import OrderInfo from './order_info';
