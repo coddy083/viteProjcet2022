@@ -72,7 +72,7 @@ function Login(props) {
             <input type="password" value={LoginPw} onChange={(e) => { setLoginPw(e.target.value) }} placeholder='비밀번호'></input>
             <button className='login_button' onClick={Signin}>로그인</button>
             <div>아이디가 없으신가요? <span onClick={() => { setSignup(false) }}>회원가입</span></div>
-            <button onClick={KaKao_Login} className='kakao_login'>카카오 로그인</button>
+            <button onClick={KaKao_Login} className='kakao_login'></button>
         </div>
         :
         <div className="login_modal">
@@ -83,7 +83,7 @@ function Login(props) {
             <input type="password" value={SignupPwCheck} onChange={(e) => { setSignupPwCheck(e.target.value) }} placeholder='비밀번호 확인'></input>
             <button className='login_button' onClick={SignupSubmit}>회원가입</button>
             <div>이미 회원이신가요? <span onClick={() => { setSignup(true) }}>로그인</span></div>
-            <button onClick={KaKao_Login} className='kakao_login'>카카오 로그인</button>
+            <button onClick={KaKao_Login} className='kakao_login'></button>
         </div>
     )
 }

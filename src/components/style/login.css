@@ -26,9 +26,9 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    background-color: #fff;
+    background-color: #000;
     cursor: pointer;
-    color: #000;
+    color: #fff
 }
 .login_button:focus{
     outline: none;
@@ -48,4 +48,5 @@
     justify-content: center;
     align-items: center;
     background-image: url(https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_large_narrow.png);
+    background-size: 100% 100%;
 }
