@@ -31,6 +31,17 @@ const OrderList = (props) => {
       })
   }
 
+  // useEffect(() => {
+  //   addEventListener('scroll', () => {
+  //     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+  //       if (Page <= AllPages) {
+  //         setPage(Page + 1);
+  //       }
+  //     }
+  //   }
+  //   )
+  // }, [])
+
   useEffect(() => {
     getOrderList();
   }, [Page]);
