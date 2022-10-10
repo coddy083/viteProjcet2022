@@ -10,7 +10,7 @@ const SERVER_IP = ServerIP()
 const OrderList = (props) => {
   const [AllPages, setAllPages] = useState(0);
   const [Page, setPage] = useState(1);
-  const [orderList, setOrderList] = useState();
+  const [orderList, setOrderList] = useState([]);
 
   const getOrderList = () => {
     props.loadingon(true);
@@ -31,17 +31,6 @@ const OrderList = (props) => {
       })
   }
 
-  // useEffect(() => {
-  //   addEventListener('scroll', () => {
-  //     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-  //       if (Page <= AllPages) {
-  //         setPage(Page + 1);
-  //       }
-  //     }
-  //   }
-  //   )
-  // }, [])
-
   useEffect(() => {
     getOrderList();
   }, [Page]);
@@ -49,21 +38,14 @@ const OrderList = (props) => {
   const OrderData = (data) => {
     return (
       <Orders
-        key={data.id}
-        id={data.id}
-        link={data.link}
-        quantity={data.quantity}
-        remains={data.remains}
-        start_count={data.start_count}
-        status={data.status}
-        service_name={data.service_name}
-        create_date={data.create_date}
+        data={data}
       />
     )
   }
 
   return (
     <div className="order_list">
+      {orderList && orderList.map(OrderData)}
       <div className="order_list_page">
         <div className="order_list_page_left">
           <button className="order_list_page_left_button" onClick={() => Page > 1 && setPage(Page - 1)}>이전</button>
@@ -77,7 +59,6 @@ const OrderList = (props) => {
           <button className="order_list_page_right_button" onClick={() => Page < AllPages && setPage(Page + 1)}>다음</button>
         </div>
       </div>
-      {orderList && orderList.map(OrderData)}
     </div>
   );
 }
