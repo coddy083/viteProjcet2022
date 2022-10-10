@@ -76,8 +76,8 @@ function Mypage() {
             </div>
             <div className='despoit'>
                 <h1>금액 충전</h1>
-                <h4>우리은행 123-456-789</h4>
-                <p>예금주 이민기</p>
+                <h4>하나은행 123-123-12345 하은미디어</h4>
+                <h4>카카오뱅크 123-123-12345 하은미디어</h4>
                 <select onChange={(e) => { setChargeMoney(e.target.value) }}>
                     <option value="0">충전금액</option>
                     <option value="5000">5000</option>

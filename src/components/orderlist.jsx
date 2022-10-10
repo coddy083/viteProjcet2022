@@ -38,6 +38,7 @@ const OrderList = (props) => {
   const OrderData = (data) => {
     return (
       <Orders
+        key={data.id}
         data={data}
       />
     )

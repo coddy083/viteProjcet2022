@@ -51,10 +51,17 @@
 }
 
 .order_status div:nth-child(4) {
+    background-color: #F37878;
+    margin: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.order_status div:nth-child(5) {
     background-color: #FFB200;
     margin: 5px;
     border-radius: 10px;
-    color: black;
+    color: #000;
 }
 
 @media (max-width: 400px) {
