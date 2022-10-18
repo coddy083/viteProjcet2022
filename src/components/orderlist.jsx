@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './style/orderlist.css'
 import Orders from './orders'
+import Search from "./search";
 import Swal from 'sweetalert2'
 import ServerIP from "./server";
 
@@ -46,6 +47,7 @@ const OrderList = (props) => {
 
   return (
     <div className="order_list">
+      <Search />
       {orderList && orderList.map(OrderData)}
       <div className="order_list_page">
         <div className="order_list_page_left">
