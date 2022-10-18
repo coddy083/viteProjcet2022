@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './style/order.css'
 
-function Orders(props) {
+function SearchOrders(props) {
     useEffect(
         () => {
             console.log(props.Searchs);
@@ -25,4 +25,4 @@ function Orders(props) {
     )
 }
 
-export default Orders
+export default SearchOrders

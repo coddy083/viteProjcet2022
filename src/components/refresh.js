@@ -12,16 +12,16 @@ const RefreshToken = () => {
         localStorage.setItem("eztoken", res.data.access)
     }).catch(err => {
         console.log(err)
-        (err.response.status === 0 ? 
-        Swal.fire({
-            icon: "error",
-            title: "서버에러!",
-            text: "잠시 후 다시 시도해주세요.",
-            // footer: "<A href='<Login />'>Login</A>"
-        })
-        :
-        console.log(err.response.status)
-        )
+            (err.response.status === 0 ?
+                Swal.fire({
+                    icon: "error",
+                    title: "서버에러!",
+                    text: "잠시 후 다시 시도해주세요.",
+                    // footer: "<A href='<Login />'>Login</A>"
+                })
+                :
+                console.log(err.response.status)
+            )
     })
 }
 
