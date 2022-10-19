@@ -4,12 +4,13 @@ import './style/order.css'
 function Orders(props) {
     useEffect(
         () => {
-            console.log(props.Searchs);
+            console.log(props);
         }, []
     )
 
     return (
         <div className='orders'>
+            <div className='order_service'>{props.data.service_name.name}</div>
             <div className='order'><a href={props.data.link} target="_blank" rel="noreferrer">{props.data.link}</a></div>
             <div className='order_status'>
                 <div>시작 {props.data.start_count}</div>

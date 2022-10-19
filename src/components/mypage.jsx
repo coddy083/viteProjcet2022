@@ -76,8 +76,17 @@ function Mypage() {
             </div>
             <div className='despoit'>
                 <h1>금액 충전</h1>
-                <h4>하나은행 123-123-12345 하은미디어</h4>
-                <h4>카카오뱅크 123-123-12345 하은미디어</h4>
+                <h4>하나은행 24391002457004<button style={{
+                    "margin": "0 0 0 10px",
+                    "padding": "4px",
+                    "background": "none",
+                    "color": "blue",
+                    "cursor": "pointer",
+                }} onClick={() => {
+                    navigator.clipboard.writeText("24391002457004");
+                    Swal.fire('계좌번호가 복사되었습니다.', '');
+                }}>계좌번호 복사</button></h4>
+                <p>예금주 하은미디어(이민기)</p>
                 <select onChange={(e) => { setChargeMoney(e.target.value) }}>
                     <option value="0">충전금액</option>
                     <option value="5000">5000</option>

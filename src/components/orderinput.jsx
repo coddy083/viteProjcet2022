@@ -8,6 +8,7 @@ import OrderInfo from './order_info';
 const SERVER_IP = ServerIP()
 
 function OrderInput(props) {
+  console.log(props);
   const [OrderLink, setOrderLink] = useState('');
   const [OrderQuantity, setOrderQuantity] = useState('');
   const OrderClick = () => {
@@ -25,8 +26,9 @@ function OrderInput(props) {
       })
 
       swalWithBootstrapButtons.fire({
-        title: `${OrderLink} 주문을 하시겠습니까?`,
-        text: `금액은 ${OrderQuantity*props.Desc.price}P 입니다.`,
+        title: `${props.Desc.name}<p>${OrderLink}</p>`,
+        text: `서비스 이용료 ${OrderQuantity*props.Desc.price}P 를 차감하고 주문하시겠습니까?`,
+        // text: `금액은 ${OrderQuantity*props.Desc.price}P 입니다.`,
         icon: 'warning',
         confirmButtonColor: '#3085d6',
         showCancelButton: true,
