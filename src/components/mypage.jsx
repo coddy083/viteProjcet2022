@@ -77,10 +77,12 @@ function Mypage() {
             <div className='despoit'>
                 <h1>금액 충전</h1>
                 <h4>하나은행 24391002457004<button style={{
+                    "outline": "none",
+                    "border": "1px solid #cecece",
                     "margin": "0 0 0 10px",
                     "padding": "4px",
                     "background": "none",
-                    "color": "blue",
+                    "color": "gray",
                     "cursor": "pointer",
                 }} onClick={() => {
                     navigator.clipboard.writeText("24391002457004");
