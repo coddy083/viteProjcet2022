@@ -8,7 +8,6 @@ import OrderInfo from './order_info';
 const SERVER_IP = ServerIP()
 
 function OrderInput(props) {
-  console.log(props);
   const [OrderLink, setOrderLink] = useState('');
   const [OrderQuantity, setOrderQuantity] = useState('');
   const OrderClick = () => {

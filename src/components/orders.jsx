@@ -2,12 +2,6 @@ import { useEffect } from 'react'
 import './style/order.css'
 
 function Orders(props) {
-    useEffect(
-        () => {
-            console.log(props);
-        }, []
-    )
-
     return (
         <div className='orders'>
             <div className='order_service'>{props.data.service_name.name}</div>
